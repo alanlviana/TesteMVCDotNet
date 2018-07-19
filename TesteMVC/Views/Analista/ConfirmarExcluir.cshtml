@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Exclusão de Análista";
+}
+@model AnalistaViewModel;
+<h2>@ViewData["Title"]</h2>
+<form asp-controller="analista" asp-action="excluir" asp-route-id="@Model.Id" method="POST">
+    <div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="nome">Código</label>
+            <input class="form-control" asp-for="@Model.Id" type="text" name="nome" required maxlength="50" readonly />
+            <span asp-validation-for="@Model.Id" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control" asp-for="@Model.Nome" type="text" name="nome" required maxlength="50" readonly />
+            <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <input class="btn btn-danger" type="submit" value="Excluir">
+        <a  class="btn btn-primary" 
+           asp-controller="analista"
+           asp-action="lista">
+            Cancelar   
+        </a>
+    </div>
+</div>
+</form>

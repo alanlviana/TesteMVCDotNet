@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Cadastro de Análista";
+}
+@model AnalistaViewModel;
+<h2>@ViewData["Title"]</h2>
+<form asp-controller="analista" asp-action="formulario" method="POST">
+    <div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control" asp-for="@Model.Nome" type="text" name="nome" required maxlength="50" />
+            <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <input class="btn btn-primary" type="submit" value="Salvar">
+    </div>
+</div>
+</form>

@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Lista de Análistas";
+}
+@model ListaAnalistaViewModel;
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <td>#</td>
+               <td>Nome</td>
+               <td>Ações</td>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach(var analistaViewModel in Model.AnalistasViewModel){
+                <tr>
+                    <td>@analistaViewModel.Id</td>
+                    <td>@analistaViewModel.Nome</td>
+                    <td>
+                        <div class="btn-group">
+
+                        
+                        <a class="btn btn-primary"
+                        asp-controller="analista"
+                        asp-action="formulario"
+                        asp-route-id="@analistaViewModel.Id"
+                        >
+                        Editar</a>
+                        <a class="btn btn-danger"
+                        asp-controller="analista"
+                        asp-action="ConfirmarExcluir"
+                        asp-route-id="@analistaViewModel.Id">
+                        Exluir</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary"
+           asp-action="formulario"
+           asp-controller="analista">
+           Cadastrar Novo
+        </a>
+    </div>
+</div>
+
+
